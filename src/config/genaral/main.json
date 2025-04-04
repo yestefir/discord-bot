@@ -1,0 +1,11 @@
+{
+    "MainBotToken": "Bot Token",
+    "ClientID": "Bot ID",
+    "prefix": [
+        ".",
+        "!",
+        "?",
+        "-",
+        "p"
+    ]
+}

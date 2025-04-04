@@ -1,0 +1,7 @@
+{
+  "autoBackup": true,
+  "backupInterval": 6,
+  "maxBackups": 10,
+  "compressBackups": false,
+  "lastBackupTime": "2025-04-02T10:37:45.928Z"
+}

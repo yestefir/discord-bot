@@ -1,2 +1,1 @@
-# bos-altyapi
-v14 güncel
+# v14-bos altyapi
