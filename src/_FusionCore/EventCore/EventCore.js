@@ -3,7 +3,7 @@ const path = require('path');
 
 const eventsPath = path.join(__dirname, '../../events');
 
-const loadEvents = (client) => {
+const EventCore  = (client) => {
     if (!fs.existsSync(eventsPath)) {
         console.warn('[Event] Warning: "events" klasörü bulunamadı.');
         return;
@@ -28,4 +28,4 @@ const loadEvents = (client) => {
     }
 };
 
-module.exports = { loadEvents };
+module.exports = { EventCore  };
