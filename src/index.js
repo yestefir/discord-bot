@@ -2,7 +2,7 @@ const { Client, GatewayIntentBits, Partials } = require('discord.js');
 
 // FusionCore entegrasyonu
 const { Core } = require('./_FusionCore/FusionCore/Core');
-const { loadEvents } = require('./_FusionCore/EventCore/EventCore');
+const { EventCore } = require('./_FusionCore/EventCore/EventCore');
 
 
 // Config dosyası
@@ -45,7 +45,7 @@ client.once('ready', async () => {
              
 
         // Event yükleyicisini çağır
-        await loadEvents(client);
+        await EventCore(client);
 
 
         console.log(`${client.user.tag} hazır!`);
