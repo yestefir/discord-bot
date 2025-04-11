@@ -1,6 +1,7 @@
 const { PermissionsBitField, EmbedBuilder } = require('discord.js');
 module.exports = {
     name: 'emojiekle',
+    subname: ["emoji","ekle"],
     description: 'Belirtilen özel Discord emojilerini sunucuya ekler.',
     async run(client, message, args) {
         if (!message.member.permissions.has(PermissionsBitField.Flags.ManageEmojisAndStickers)) {

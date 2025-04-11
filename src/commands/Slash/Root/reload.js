@@ -1,5 +1,5 @@
 const { SlashCommandBuilder ,PermissionsBitField} = require('discord.js');
-const Emote = require('../../../config/emote.json')
+const Emote = require('../../../config/genaral/Emote.json')
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('reload')

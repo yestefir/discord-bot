@@ -1,11 +1,9 @@
 {
-    "MainBotToken": "Bot Token",
-    "ClientID": "Bot ID",
+    "MainBotToken": "TOKEN",
+    "MainBotID": "Bot ID",
+    "ServerID":"Server ID",
+    "VoiceChannelID":"Ses kanalına gireceği ID",
     "prefix": [
-        ".",
-        "!",
-        "?",
-        "-",
-        "p"
+        "."
     ]
 }

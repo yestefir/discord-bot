@@ -1,6 +1,7 @@
 const { PermissionsBitField } = require('discord.js');
 module.exports = {
     name: 'sil',
+    subname: ["clear","sıl"],
     description: 'Belirtilen sayıda mesajı siler.',
     /**
      * Komutun çalıştırılma fonksiyonu

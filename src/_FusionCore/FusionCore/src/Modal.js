@@ -11,13 +11,11 @@ class Modal {
         this.loadModalHandlers();
     }
     loadModalHandlers() {
-        const modalPath = path.join(__dirname, '../../../handlers/Modal');
+        const modalPath = path.join(__dirname, '../../../handlers/modal');
         if (!fs.existsSync(modalPath)) {
             fs.mkdirSync(modalPath, { recursive: true });
-            console.log(`Created directory: ${modalPath}`);
         }
         const modalFiles = this.getFiles(modalPath);
-        console.log(`Found ${modalFiles.length} modal handler files`);
         for (const file of modalFiles) {
             try {
                 delete require.cache[require.resolve(file)];
@@ -25,16 +23,14 @@ class Modal {
                 if (modalAction.customId && typeof modalAction.execute === 'function') {
                     if (modalAction.customId.endsWith('_')) {
                         this.prefixHandlers.set(modalAction.customId, modalAction.execute);
-                        console.log(`[Modal] prefix handler: ${modalAction.customId}`);
                     } else {
                         this.handlers.set(modalAction.customId, modalAction.execute);
-                        console.log(`[Modal] exact handler: ${modalAction.customId}`);
                     }
                 } else {
-                    console.warn(`Invalid modal handler format: ${file}`);
+                    console.error(`Hatalı modal handler formatı: ${file}`);
                 }
             } catch (err) {
-                console.error(`Failed to load modal handler ${file}: ${err.message}`);
+                console.error(`Modal handler yüklemesi sırasında hata: ${file} - ${err.message}`);
             }
         }
     }
@@ -57,11 +53,13 @@ class Modal {
         try {
             await handler(interaction);
         } catch (error) {
-            console.error(`Modal processing error ${interaction.customId}:`, error);
+            console.error(`Modal işleme hatası ${interaction.customId}: ${error.message}`);
             await interaction.reply({
                 content: 'Bir hata oluştu, lütfen daha sonra tekrar deneyin.',
                 ephemeral: true
-            }).catch(() => {});
+            }).catch((replyError) => {
+                console.error(`Hata yanıtı gönderilemedi: ${replyError.message}`);
+            });
         }
     }
     reload() {

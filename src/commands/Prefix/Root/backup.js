@@ -3,6 +3,7 @@ const JsonManager = require('../../../../Database/SuperCore/JsonManager');
 const config = require('../../../config/genaral/main.json')
 module.exports = {
   name: 'backup',
+  subname: ["yedek","database"],
   description: 'Sistem yedekleme işlemlerini yönetir',
   usage: 'backup <create/list/restore/config> [options]',
   async run(client, message, args,) {
