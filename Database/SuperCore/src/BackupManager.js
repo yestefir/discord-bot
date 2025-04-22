@@ -65,7 +65,7 @@ class BackupManager {
     this.backupTimer = setInterval(() => {
       this.backupAllJsonFiles();
     }, intervalMs);
-    console.log(`[JsonManager] JsonCore Aktif! (her ${this.backupConfig.backupInterval} saatte bir).`);
+    console.log(`[JsonManager] Backup Manager Aktif! (her ${this.backupConfig.backupInterval} saatte bir).`);
   }
   getBackupDir() {
     try {

@@ -5,13 +5,13 @@ module.exports = {
     async execute(interaction) {
         try {
             const client = interaction.client;
-            if (!client.Core) {
+            if (!client.interactions) {
                 return interaction.reply({
-                    content: 'Core sistemi yüklenemedi!',
+                    content: 'interactions sistemi yüklenemedi!',
                     ephemeral: true
                 });
             }
-            const core = client.Core;
+            const core = client.interactions;
             const selectedValue = interaction.values[0];
             const prefix = main.prefix || '!';
             if (selectedValue === 'slash_commands') {

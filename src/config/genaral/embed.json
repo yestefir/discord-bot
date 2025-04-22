@@ -1,0 +1,14 @@
+
+{
+    "default": {
+      "title": "@autoMessage System",
+      "description": "Varsayılan Açıklama",
+      "color": "#0099ff",
+      "footer": "@MysticStudio",
+      "footerIcon": "https://example.com/footer-icon.png",
+      "thumbnail": "https://example.com/thumbnail.png",
+      "image": "https://example.com/image.png",
+      "authorName": "MysticBot",
+      "authorIcon": "https://cdn.discordapp.com/avatars/1338975075201716224/a_26f63f775c64d24ae1839734524b076b.gif"
+    }
+  }

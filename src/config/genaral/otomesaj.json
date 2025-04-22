@@ -1,0 +1,11 @@
+{
+    "prefix": "!",
+    "responses": [
+      {
+        "trigger": "sa",
+        "reply": "as",
+        "embed": true
+      }
+    ]
+  }
+  

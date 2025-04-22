@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('handler')
@@ -7,21 +8,24 @@ module.exports = {
     guildOnly: false,
     async execute(interaction) {
         const client = interaction.client;
-        if (!client.Core) {
+        
+        if (!client.interactions) {
             return interaction.reply({
-                content: 'Core sistemi yüklenemedi!',
+                content: 'interactions sistemi yüklenemedi!',
                 ephemeral: true
             });
         }
-        const core = client.Core;
-        const slashCommands = core.slashHandler.commands.size || 0;
-        const slashSubcommands = core.slashHandler.subcommands.size || 0;
-        const prefixCommands = core.prefixHandler.commands.size || 0;
-        const prefixAliases = core.prefixHandler.aliases.size || 0;
-        const buttonHandlers = core.buttonHandler.handlers.size || 0;
-        const menuHandlers = core.menuHandler.handlers.size || 0;
-        const modalHandlers = core.modalHandler.handlers.size || 0;
-        const modalPrefixHandlers = core.modalHandler.prefixHandlers.size || 0;
+        
+        const interactions = client.interactions;
+        const slashCommands = interactions.slashHandler.commands.size || 0;
+        const slashSubcommands = interactions.slashHandler.subcommands.size || 0;
+        const prefixCommands = interactions.prefixHandler.commands.size || 0;
+        const prefixAliases = interactions.prefixHandler.aliases.size || 0;
+        const buttonHandlers = interactions.buttonHandler.handlers.size || 0;
+        const menuHandlers = interactions.menuHandler.handlers.size || 0;
+        const modalHandlers = interactions.modalHandler.handlers.size || 0;
+        const modalPrefixHandlers = interactions.modalHandler.prefixHandlers.size || 0;
+        
         const embed = {
             color: 0x2B2D31,
             title: '📋 Handler Yönetim Paneli',
@@ -59,6 +63,7 @@ module.exports = {
                 icon_url: interaction.guild.iconURL() || ''
             }
         };
+        
         const reloadButton = {
             type: 1,
             components: [
@@ -70,6 +75,7 @@ module.exports = {
                 }
             ]
         };
+        
         await interaction.reply({
             embeds: [embed],
             components: [reloadButton],

@@ -1,9 +1,11 @@
 {
-    "MainBotToken": "TOKEN",
-    "MainBotID": "Bot ID",
-    "ServerID":"Server ID",
-    "VoiceChannelID":"Ses kanalına gireceği ID",
+    "MainBotToken": "Discord-Bot-Token",
+    "MainBotID": "Discord-Bot-ID",
+    "VoiceChannelID":"Ses-Kanalı-(Opsiyonel)",
+    "ServerID": "Sunucu-ID",
+    "ServerName": "Şekermi Şakamı",
     "prefix": [
         "."
-    ]
+    ],
+    "Activity": ["Test", "Deneme", "Başka aktivite"]
 }

@@ -8,15 +8,15 @@ module.exports = {
             });
         }
         const client = interaction.client;
-        if (!client.Core) {
+        if (!client.interactions) {
             return interaction.reply({
-                content: 'Core sistemi yüklenemedi!',
+                content: 'interactions sistemi yüklenemedi!',
                 ephemeral: true
             });
         }
         await interaction.deferReply({ ephemeral: true });
         try {
-            await client.Core.reload();
+            await client.interactions.reload();
             const embed = {
                 color: 0x2B2D31,
                 title: '✅ Handler Yönetimi',

@@ -1,16 +1,27 @@
 const fs = require('fs');
 const path = require('path');
 const BackupManager = require('./src/BackupManager');
+
 class JsonManager {
-  constructor() {
+  constructor(initializeBackup = false) {
     this.settingsPath = path.join(__dirname, '..', '..', 'src', 'config','database', 'path.json');
     this.settings = this.loadSettings();
     this.backupManager = new BackupManager();
+    
+    if (initializeBackup) {
+      this.initializeBackup();
+    }
+  }
+
+  initializeBackup() {
     if (this.backupManager.getBackupConfig().autoBackup && !global.backupInitialized) {
       this.backupManager.startBackupScheduler(this.settings);
       global.backupInitialized = true;
+      return true;
     }
+    return false;
   }
+
   loadSettings() {
     try {
       if (!fs.existsSync(this.settingsPath)) {
@@ -25,6 +36,7 @@ class JsonManager {
       return { "@backup": "@backup" };
     }
   }
+
   resolvePath(id) {
     if (!this.settings[id]) {
       console.error(`[HATA] Belirtilen ID '${id}' settings.json içinde bulunamadı.`);
@@ -32,9 +44,11 @@ class JsonManager {
     }
     return path.resolve(__dirname, '..', this.settings[id]); 
   }
+
   getFilePath(id, key = null) {
     return this.resolvePath(id); 
   }
+
   readJson(id) {
     try {
       const filePath = this.getFilePath(id);
@@ -48,6 +62,7 @@ class JsonManager {
       return null;
     }
   }
+
   writeJson(id, data) {
     try {
       const filePath = this.getFilePath(id);
@@ -63,6 +78,7 @@ class JsonManager {
       return false;
     }
   }
+
   set(id, fieldOrData, value) {
     try {
       if (value === undefined) {
@@ -77,6 +93,7 @@ class JsonManager {
       return false;
     }
   }
+
   get(id, field = null) {
     try {
       const data = this.readJson(id) || {};
@@ -86,6 +103,7 @@ class JsonManager {
       return null;
     }
   }
+
   delete(id) {
     try {
       const filePath = this.getFilePath(id);
@@ -99,9 +117,11 @@ class JsonManager {
       return false;
     }
   }
+
   getBackupConfig() {
     return this.backupManager.getBackupConfig();
   }
+
   updateBackupConfig(newConfig) {
     const result = this.backupManager.updateBackupConfig(newConfig);
     if (result && newConfig.autoBackup) {
@@ -109,12 +129,15 @@ class JsonManager {
     }
     return result;
   }
+
   manualBackup() {
     return this.backupManager.manualBackup(this.settings);
   }
+
   getBackupHistory() {
     return this.backupManager.getBackupHistory();
   }
+
   restoreBackup(backupFileName) {
     const restoredSettings = this.backupManager.restoreBackup(backupFileName);
     if (restoredSettings) {
@@ -124,7 +147,9 @@ class JsonManager {
     return false;
   }
 }
+
 if (typeof global.backupInitialized === 'undefined') {
   global.backupInitialized = false;
 }
+
 module.exports = JsonManager;
