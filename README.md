@@ -9,6 +9,18 @@ Discord.js v14 kullanılarak oluşturulmuş, tamamen özelleştirilebilir ve gen
 - **Hızlı Kurulum:** Geliştirilmiş BAT dosyaları (örneğin, `kur.bat` ve `atesle.bat`) ile hızlı kurulum ve çalıştırma.
 - **Esneklik:** Bot komutları, event dinleyicileri ve diğer özellikler geliştiricinin ihtiyaçlarına göre rahatça düzenlenebilir.
 
+
+## Komutlar
+
+- AFK Sistemi (Gelişmiş!)
+- EmojiEkle Komutu  
+- Sil Komutu
+- Oto Mesaj yanıtlama (Configli)
+- Backup komutu (Database)
+- Yardım (Oto yenilenir yüklenen komuta göre)
+- (Handler) (Button / Modal / Menu gibi)
+- Basit üye komutları (Banner / Profil)
+
 ## Kurulum
 
 ### Gereksinimler
