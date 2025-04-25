@@ -1,4 +1,4 @@
-# Discord v14 Bot - Boş Altyapı
+# Discord v14 Bot - Altyapı
 
 Discord.js v14 kullanılarak oluşturulmuş, tamamen özelleştirilebilir ve genişletilebilir bir Discord botu altyapısıdır.
 
@@ -25,7 +25,7 @@ Discord.js v14 kullanılarak oluşturulmuş, tamamen özelleştirilebilir ve gen
 
 ### Gereksinimler
 
-- **Node.js:** Proje için Node.js sürüm 16 veya üzeri gereklidir.
+- **Node.js:** Proje için Node.js sürüm 18 veya üzeri gereklidir.
 - **NPM:** Node.js paketlerini yönetmek için npm kurulmuş olmalıdır.
 
 ### Adımlar
